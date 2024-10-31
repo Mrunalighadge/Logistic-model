@@ -1,3 +1,29 @@
+import os
+import streamlit as st
+import pickle
+import pandas as pd
+
+# Check if model file exists
+model_path = "logistic_model.pkl"
+if not os.path.exists(model_path):
+    st.error(f"Model file '{model_path}' not found. Please ensure it's in the correct directory.")
+else:
+    # Load the trained model
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+
+    st.write("Model loaded successfully!")  # Confirm that model loaded correctly
+
+
+# streamlit_app.py
+import streamlit as st
+import pickle
+import pandas as pd
+
+# Load the trained model
+with open('logistic_model.pkl', 'rb') as f:
+    model = pickle.load(f)
+
 # streamlit_app.py
 import streamlit as st
 import pickle
